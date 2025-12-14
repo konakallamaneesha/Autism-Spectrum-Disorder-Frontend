@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ASD Screening Form</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="container">
+  <h2>ASD Screening Questionnaire</h2>
+  <p class="step">Step 2 of 3</p>
+
+  <form id="asdForm">
+
+    <label>A1: Responds to name? <span title="Child turns or reacts when name is called">ℹ️</span></label>
+    <select id="A1"><option value="0">Yes</option><option value="1">No</option></select>
+
+    <label>A2: Makes eye contact? <span title="Looks into eyes while interacting">ℹ️</span></label>
+    <select id="A2"><option value="0">Yes</option><option value="1">No</option></select>
+
+    <label>A3: Points to objects? <span title="Uses finger to show interest">ℹ️</span></label>
+    <select id="A3"><option value="0">Yes</option><option value="1">No</option></select>
+
+    <label>A4: Pretend play? <span title="Engages in imaginative play">ℹ️</span></label>
+    <select id="A4"><option value="0">Yes</option><option value="1">No</option></select>
+
+    <label>A5: Follows gaze? <span title="Looks where others are looking">ℹ️</span></label>
+    <select id="A5"><option value="0">Yes</option><option value="1">No</option></select>
+
+    <label>A6: Understands speech? <span title="Understands simple instructions">ℹ️</span></label>
+    <select id="A6"><option value="0">Yes</option><option value="1">No</option></select>
+
+    <label>A7: Uses gestures? <span title="Waves, claps, points">ℹ️</span></label>
+    <select id="A7"><option value="0">Yes</option><option value="1">No</option></select>
+
+    <label>Age (in months)</label>
+    <select id="Age_Mons" required>
+        <option value="">Select age</option>
+        <option value="12">12</option>
+        <option value="13">13</option>
+        <option value="14">14</option>
+        <option value="15">15</option>
+        <option value="16">16</option>
+        <option value="17">17</option>
+        <option value="18">18</option>
+        <option value="19">19</option>
+        <option value="20">20</option>
+        <option value="21">21</option>
+        <option value="22">22</option>
+        <option value="23">23</option>
+        <option value="24">24</option>
+        <option value="25">25</option>
+        <option value="26">26</option>
+        <option value="27">27</option>
+        <option value="28">28</option>
+        <option value="29">29</option>
+        <option value="30">30</option>
+        <option value="31">31</option>
+        <option value="32">32</option>
+        <option value="33">33</option>
+        <option value="34">34</option>
+        <option value="35">35</option>
+        <option value="36">36</option>
+    </select>
+
+    <label>Sex</label>
+    <select id="Sex"><option value="1">Male</option><option value="0">Female</option></select>
+
+    <label>Jaundice at birth</label>
+    <select id="Jaundice"><option value="0">No</option><option value="1">Yes</option></select>
+
+    <label>Family history of ASD</label>
+    <select id="Family_mem_with_ASD"><option value="0">No</option><option value="1">Yes</option></select>
+
+   <div class="btn-wrapper">
+    <button type="submit" class="primary-btn">
+        Predict
+    </button>
+</div>
+
+
+  </form>
+</div>
+
+<script src="js/script.js"></script>
+</body>
+</html>

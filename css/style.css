@@ -1,0 +1,261 @@
+/* ---------- LANDING PAGE ---------- */
+body {
+    margin: 0;
+    font-family: "Segoe UI", sans-serif;
+
+    min-height: 100vh;
+    background: 
+        linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+        url("../images/autism_bg.jpeg") no-repeat center center fixed;
+
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-wrapper {
+    margin-top: 35px;
+    text-align: center;
+}
+.main-card {
+    width: 92%;          /* screen ni almost fill chestundi */
+    max-width: 1200px;   /* large screens ki */
+    
+    background: rgba(255,255,255,0.97);
+    border-radius: 18px;
+    padding: 50px 70px;
+
+    box-shadow: 0 25px 60px rgba(0,0,0,0.45);
+}
+h2{
+  margin-bottom: 15px;
+}
+body.landing {
+    margin: 0;
+    min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
+
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Dark gradient overlay for better text contrast */
+.overlay {
+    min-height: 100vh;
+    width: 100%;
+    background: linear-gradient(
+        rgba(0, 0, 0, 0.75),
+        rgba(0, 0, 0, 0.6)
+    );
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    padding: 40px;
+}
+
+/* Footer */
+footer {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    text-align: center;
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+/* Title */
+.title {
+    font-size: 52px;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: 1px;
+    margin-bottom: 40px;
+
+    text-shadow: 0px 4px 10px rgba(0,0,0,0.6);
+}
+
+/* Subtitle */
+.subtitle {
+    font-size: 20px;
+    font-weight: 400;
+    color: #e0e0e0;
+    max-width: 720px;
+    line-height: 1.6;
+    margin-bottom: 40px;
+}
+
+/* Button */
+.start-btn {
+    padding: 16px 48px;
+    font-size: 20px;
+    font-weight: 600;
+
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+
+    background: linear-gradient(135deg, #1e88e5, #1565c0);
+    color: #ffffff;
+
+    box-shadow: 0px 8px 20px rgba(0,0,0,0.4);
+    transition: all 0.3s ease;
+}
+
+.start-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0px 12px 25px rgba(0,0,0,0.5);
+    background: linear-gradient(135deg, #1565c0, #0d47a1);
+}
+
+* {
+  transition: all 0.3s ease;
+}
+
+body {
+  font-family: "Segoe UI", sans-serif;
+  background: linear-gradient(135deg, #1b1f3b 0%, #381e52 100%);
+  background-size: cover;
+}
+.container {
+  width: 100%;
+  margin: 0px 50px;
+  background: linear-gradient(135deg, rgba(27, 31, 59, 0.9) 0%, rgba(118, 75, 162, 0.9) 100%);
+  padding: 80px;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+h1, h2 {
+  text-align: center;
+  color: white;
+  margin-bottom: 30px;
+}
+
+h3 {
+  color: white;
+}
+
+label {
+  font-weight: 600;
+  margin-top: 15px;
+  display: block;
+  color: white;
+}
+
+select, input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 6px;
+  border-radius: 6px;
+  border: 1px solid white;
+  color: white;
+}
+
+select {
+  background: white;
+  color: black;
+}
+
+input {
+  background: rgba(255,255,255,0.1);
+}
+
+p {
+  color: white;
+}
+
+ul {
+  color: white;
+}
+
+/* Button container */
+.btn-wrapper {
+    margin-top: 20px;
+}
+/* Common Primary Button */
+.primary-btn {
+    padding: 14px 50px;
+    font-size: 18px;
+    font-weight: 600;
+
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+
+    background: linear-gradient(135deg, #2196f3, #1565c0);
+    color: #ffffff;
+
+    min-width: 220px;
+    max-width: 320px;
+
+    box-shadow: 0px 8px 20px rgba(0,0,0,0.35);
+    transition: all 0.3s ease;
+}
+
+.primary-btn:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0px 14px 28px rgba(0,0,0,0.55);
+    background: linear-gradient(135deg, #1565c0, #0d47a1);
+}
+
+
+/* Start Screening Button */
+.start-btn {
+    padding: 16px 60px;
+    font-size: 20px;
+    font-weight: 600;
+
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+
+    background: linear-gradient(135deg, #2196f3, #1565c0);
+    color: #ffffff;
+
+    min-width: 260px;
+    max-width: 320px;
+
+    box-shadow: 0px 8px 20px rgba(0,0,0,0.45);
+    transition: all 0.3s ease;
+}
+
+.start-btn:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0px 14px 28px rgba(0,0,0,0.6);
+    background: linear-gradient(135deg, #1565c0, #0d47a1);
+}
+
+
+.step {
+  text-align: center;
+  color: gray;
+  font-size: 14px;
+}
+
+.result-text {
+  font-size: 22px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.prob-text {
+  text-align: center;
+  font-size: 18px;
+  color: #555;
+}
+
+.disclaimer {
+  font-size: 13px;
+  color: gray;
+  margin-top: 20px;
+  text-align: center;
+}
