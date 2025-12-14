@@ -46,24 +46,29 @@ body.landing {
 .overlay {
     min-height: 100vh;
     width: 100%;
+  padding-top: 80px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;   /* 🔑 top ki move */
+    align-items: center;
+
+    text-align: center;
+               /* 🔑 control space from top */
+    padding-left: 20px;
+    padding-right: 20px;
+
     background: linear-gradient(
         rgba(0, 0, 0, 0.75),
         rgba(0, 0, 0, 0.6)
     );
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-
-    padding: 40px;
 }
+
 
 /* Footer */
 footer {
     position: absolute;
-    bottom: 20px;
+    bottom: 5px;
     left: 50%;
     transform: translateX(-50%);
     color: white;
@@ -127,9 +132,9 @@ body {
 }
 .container {
   width: 100%;
-  margin: 0px 50px;
+   margin: 50px 50px;   /* 🔽 top space thaggindi */
+  padding: 50px 80px;            /* 🔽 header ki daggara */
   background: linear-gradient(135deg, rgba(27, 31, 59, 0.9) 0%, rgba(118, 75, 162, 0.9) 100%);
-  padding: 80px;
   border-radius: 14px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
@@ -258,4 +263,28 @@ ul {
   color: gray;
   margin-top: 20px;
   text-align: center;
+}
+/* FORCE CONTENT TO MOVE UP */
+body {
+  align-items: flex-start !important;
+}
+/* 🔥 FORCE move content UP for form & result pages */
+body.form-page {
+    align-items: flex-start !important;
+}
+
+/* 🔥 container ni top ki push cheyyadam */
+body.form-page .container {
+    margin-top: 10px !important;
+    padding-top: 40px !important;
+}
+/* ================= RESULT PAGE CENTER FIX ================= */
+
+/* Body ni full center lo align cheyyadam */
+body.result-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin:5px 5px;
 }
