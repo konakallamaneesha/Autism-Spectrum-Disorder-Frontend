@@ -299,49 +299,69 @@ body.form-page h2{
 }
 /* ---------- MOBILE RESPONSIVE FIX ---------- */
 
+
 @media (max-width: 768px){
 
-  .container{
-      margin: 10px;
-      padding: 18px 14px;   /* reduce padding */
-  }
+    body{
+        display:block;  /* disable center flex on phone */
+    }
 
-  h1, h2{
-      font-size: 20px;
-  }
+    .container{
+        max-width: 95%;
+        margin: 10px auto;
+        padding: 16px 14px;
+    }
 
-  .title{
-      font-size: 26px;
-  }
+    /* home title */
+    .title{
+        font-size: 26px;
+        line-height: 1.2;
+    }
 
-  .subtitle{
-      font-size: 14px;
-  }
+    .subtitle{
+        font-size: 14px;
+    }
 
-  select, input{
-      font-size: 14px;
-  }
+    /* buttons equal width */
+    .primary-btn,
+    .start-btn{
+        width: 100%;
+        max-width: 320px;
+        font-size: 16px;
+    }
 
-  .primary-btn,
-  .start-btn{
-      width: 90%;          /* same equal width on phone */
-      font-size: 16px;
-  }
+    .btn-wrapper{
+        flex-direction: column;
+        gap: 8px;
+        align-items: center;
+    }
 
-  .btn-wrapper{
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      align-items: center;
-  }
+    /* form elements */
+    select, input{
+        font-size: 14px;
+        height: 42px;
+    }
 
-  /* dashboard sidebar */
-  .sidebar{
-      width: 210px;
-  }
+    /* form container width */
+    body.form-page .container{
+        max-width: 95%;
+    }
 
-  .card img{
-      max-width: 95%;
-      max-height: 300px;
-  }
+    /* dashboard layout */
+    .sidebar{
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+
+    .content{
+        margin-left: 0;
+    }
+
+    /* graphs smaller */
+    .card img{
+        max-width: 100%;
+        max-height: 260px;
+    }
 }
+
