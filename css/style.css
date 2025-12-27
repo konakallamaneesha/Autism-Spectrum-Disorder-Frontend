@@ -3,221 +3,171 @@
   transition: all 0.3s ease;
 }
 
-body{
+html, body{
   margin:0;
+  padding:0;
+  max-width:100%;
+  overflow-x:hidden !important;       /* ⭐ remove sideways scroll */
   font-family:"Poppins",sans-serif;
-  min-height:100vh;
   background:linear-gradient(135deg,#1b1f3b 0%,#381e52 100%);
-  background-size:cover;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  overflow-x: hidden; /* stop sideways scroll */
 }
 
 /* ---------- LANDING PAGE ---------- */
 body.landing{
-  background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);
+  background:linear-gradient(135deg,#667eea,#764ba2);
 }
 
-/* overlay */
+/* overlay wrapper */
 .overlay{
   min-height:100vh;
   width:100%;
-  padding-top:120px;  /* ⭐ extra top spacing */
-  display:flex;
-  flex-direction:column;
-  align-items:center;
+  padding-top:110px;                  /* ⭐ more gap from top */
   text-align:center;
 
   background:linear-gradient(
     rgba(0,0,0,0.75),
     rgba(0,0,0,0.6)
   );
+
+  position:relative;
+  overflow:hidden;                    /* ⭐ emojis don't go outside */
 }
 
 /* ---------- TITLE ---------- */
 .title{
-  font-size:52px;
+  font-size:48px;
   font-weight:700;
   color:white;
-  margin-bottom:30px;
+  margin-bottom:16px;
 }
 
 /* ---------- SUBTITLE ---------- */
 .subtitle{
-  font-size:20px;
+  font-size:18px;
   max-width:760px;
   color:#e8e8e8;
-  margin-bottom:40px;
+  margin-bottom:30px;
   line-height:1.6;
-}
-
-/* ---------- FOOTER ---------- */
-footer{
-  position:fixed;
-  bottom:10px;
-  left:50%;
-  transform:translateX(-50%);
-  width:100%;
-  text-align:center;
-  color:white;
-  opacity:0.9;
-  font-size:14px;
-  line-height:20px;  /* ⭐ neat 2 line format */
 }
 
 /* ---------- BUTTON GROUP ---------- */
 .landing .btn-wrapper{
   display:flex;
   justify-content:center;
-  gap:22px;
+  gap:18px;
   flex-wrap:wrap;
-  margin-top:20px;
 }
 
-/* ---------- BUTTON STYLE ---------- */
+/* unified button style */
 .primary-btn,
-.secondary-btn,
 .start-btn{
   width:300px;
   padding:14px 0;
   font-size:18px;
-  font-weight:600;
-  border-radius:14px;
-  cursor:pointer;
-  white-space:nowrap;
-  text-align:center;
-}
-
-/* Primary Button */
-.primary-btn,
-.start-btn{
   border:none;
   color:white;
-  background:linear-gradient(135deg,#2196f3,#1565c0);
-  box-shadow:0 8px 20px rgba(0,0,0,0.45);
-}
-
-.primary-btn:hover,
-.start-btn:hover{
-  transform:translateY(-3px);
-  box-shadow:0 12px 26px rgba(0,0,0,0.55);
-}
-
-/* ---------- CONTAINER ---------- */
-.container{
-  width:100%;
-  margin:30px 40px;
-  padding:40px 60px;
-  background:linear-gradient(135deg,rgba(27,31,59,.9),rgba(118,75,162,.9));
   border-radius:14px;
-  box-shadow:0 10px 30px rgba(0,0,0,.25);
+  background:linear-gradient(135deg,#2196f3,#1565c0);
+  box-shadow:0 8px 20px rgba(0,0,0,.45);
 }
 
-/* ---------- FORM PAGE ---------- */
-body.form-page{
-  align-items:flex-start!important;
-}
+/* ---------- FOOTER ---------- */
+footer{
+  position:absolute;
+  bottom:12px;
+  left:50%;
+  transform:translateX(-50%);
+  width:90%;
+  text-align:center;
 
-body.form-page .container{
-  margin-top:5px!important;
-  padding-top:25px!important;
-  max-width:900px;
-  margin-left:auto;
-  margin-right:auto;
-  padding-bottom:50px;
-}
-
-body.form-page .primary-btn{
-  width:220px;
-}
-
-/* ---------- FORM ELEMENTS ---------- */
-select,input{
-  width:100%;
-  padding:10px;
-  border-radius:6px;
-  margin-top:6px;
-  border:1px solid white;
-}
-
-select{
-  background:white;
-  color:black;
+  color:white;
+  font-size:14px;
+  line-height:1.2;               /* ⭐ exactly 2 lines on phone */
+  opacity:0.9;
 }
 
 /* ---------- FLOATING EMOJIS ---------- */
 .floating-emoji{
   position:absolute;
   font-size:2rem;
-  opacity:0.7;
+  opacity:0.6;
   pointer-events:none;
-  animation: float 6s ease-in-out infinite, glow 3s ease-in-out infinite alternate;
+  z-index:1;                      /* ⭐ behind content */
+  animation:float 6s ease-in-out infinite;
 }
 
 @keyframes float{
-  0%,100%{transform:translateY(0) rotate(0);}
-  50%{transform:translateY(-12px);}
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-12px)}
 }
 
-@keyframes glow{
-  from{opacity:0.5;}
-  to{opacity:1;}
+/* smaller emoji on phones */
+@media(max-width:768px){
+  .floating-emoji{
+    font-size:1.3rem;
+    opacity:0.45;
+  }
 }
 
-/* ---------- DASHBOARD LAYOUT ---------- */
+/* ---------- FORM PAGE ---------- */
+body.form-page .container{
+  max-width:900px;
+  margin:10px auto;
+  padding:20px 24px;
+  border-radius:14px;
+}
 
-/* Sidebar fixed */
+body.form-page .primary-btn{
+  width:220px;
+}
+
+/* ---------- DASHBOARD ---------- */
+/* fixed full height sidebar */
 .sidebar{
-  width:260px;
+  width:250px;
   position:fixed;
   top:0;
   left:0;
   bottom:0;
   height:100vh;
+  background:rgba(0,0,0,.35);
+  padding:16px;
   overflow-y:auto;
 }
 
-/* Content scrolls only vertical */
+/* right content scrolls only up–down */
 .content{
-  margin-left:270px;
+  margin-left:260px;
   height:100vh;
   overflow-y:auto;
-  overflow-x:hidden;
+  overflow-x:hidden;               /* ⭐ no horizontal scroll */
+  padding:18px;
 }
 
-/* ---------- MOBILE RESPONSIVE ---------- */
+/* cards */
+.card{
+  background:rgba(255,255,255,0.08);
+  border-radius:16px;
+  padding:14px;
+}
+
+.card img{
+  max-width:100%;
+  max-height:320px;
+}
+
+/* ---------- MOBILE FIX ---------- */
 @media(max-width:768px){
 
-  body{
-    display:block;
-  }
+  .overlay{padding-top:95px;}
 
-  .overlay{
-    padding-top:90px;
-  }
+  .title{font-size:28px;}
+  .subtitle{font-size:14px;}
 
-  .title{
-    font-size:28px;
-  }
+  .start-btn,
+  .primary-btn{width:95%;}
 
-  .subtitle{
-    font-size:14px;
-  }
-
-  .primary-btn,
-  .start-btn{
-    width:90%;
-    max-width:320px;
-  }
-
-  .container{
-    max-width:95%;
-    margin:10px auto;
-    padding:14px;
-  }
-
+  /* mobile dashboard layout stacked */
   .sidebar{
     width:100%;
     height:auto;
@@ -227,10 +177,5 @@ select{
   .content{
     margin-left:0;
     height:auto;
-  }
-
-  .card img{
-    max-width:100%;
-    max-height:260px;
   }
 }
