@@ -297,113 +297,71 @@ body.form-page h2{
     height: auto;
   }
 }
-/* ---------- MOBILE & DASHBOARD FIX ---------- */
+/* ---------- MOBILE RESPONSIVE FIX ---------- */
 
-/* prevent sideways scrolling globally */
-html, body{
-  overflow-x: hidden;
-}
-
-/* home page top spacing */
-body.landing .overlay{
-  padding-top: 130px;
-}
-
-/* disclaimer single line */
-footer{
-  bottom: 18px;
-  width: 100%;
-  text-align: center;
-  white-space: nowrap;
-}
-
-/* emojis behind content */
-.floating-emoji{
-  z-index: 0;
-}
-
-.title,
-.subtitle,
-.btn-wrapper,
-footer{
-  position: relative;
-  z-index: 5;
-}
-
-/* ----- DASHBOARD LAYOUT (DESKTOP) ----- */
-
-.sidebar{
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 260px;
-  height: 100vh;
-  overflow-y: auto;
-}
-
-.content{
-  margin-left: 270px;
-  min-height: 100vh;
-}
-
-/* ----- MOBILE LAYOUT FIX ----- */
 
 @media (max-width: 768px){
 
-  body{
-    display: block; /* remove desktop centering */
-  }
+    body{
+        display:block;  /* disable center flex on phone */
+    }
 
-  .container{
-    max-width: 95%;
-    margin: 10px auto;
-    padding: 16px 14px;
-  }
+    .container{
+        max-width: 95%;
+        margin: 10px auto;
+        padding: 16px 14px;
+    }
 
-  .title{
-    font-size: 26px;
-    line-height: 1.2;
-  }
+    /* home title */
+    .title{
+        font-size: 26px;
+        line-height: 1.2;
+    }
 
-  .subtitle{
-    font-size: 14px;
-  }
+    .subtitle{
+        font-size: 14px;
+    }
 
-  .primary-btn,
-  .start-btn{
-    width: 100%;
-    max-width: 320px;
-    font-size: 16px;
-  }
+    /* buttons equal width */
+    .primary-btn,
+    .start-btn{
+        width: 100%;
+        max-width: 320px;
+        font-size: 16px;
+    }
 
-  .btn-wrapper{
-    flex-direction: column;
-    gap: 8px;
-    align-items: center;
-  }
+    .btn-wrapper{
+        flex-direction: column;
+        gap: 8px;
+        align-items: center;
+    }
 
-  select, input{
-    font-size: 14px;
-    height: 42px;
-  }
+    /* form elements */
+    select, input{
+        font-size: 14px;
+        height: 42px;
+    }
 
-  /* dashboard sidebar becomes top bar */
-  .sidebar{
-    position: relative;
-    width: 100%;
-    height: auto;
-  }
+    /* form container width */
+    body.form-page .container{
+        max-width: 95%;
+    }
 
-  .content{
-    margin-left: 0;
-  }
+    /* dashboard layout */
+    .sidebar{
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
 
-  .card img{
-    max-width: 100%;
-    max-height: 260px;
-  }
+    .content{
+        margin-left: 0;
+    }
 
-  .floating-emoji{
-    font-size: 1.5rem;
-  }
+    /* graphs smaller */
+    .card img{
+        max-width: 100%;
+        max-height: 260px;
+    }
 }
+
