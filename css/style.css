@@ -297,3 +297,51 @@ body.form-page h2{
     height: auto;
   }
 }
+/* ---------- MOBILE RESPONSIVE FIX ---------- */
+
+@media (max-width: 768px){
+
+  .container{
+      margin: 10px;
+      padding: 18px 14px;   /* reduce padding */
+  }
+
+  h1, h2{
+      font-size: 20px;
+  }
+
+  .title{
+      font-size: 26px;
+  }
+
+  .subtitle{
+      font-size: 14px;
+  }
+
+  select, input{
+      font-size: 14px;
+  }
+
+  .primary-btn,
+  .start-btn{
+      width: 90%;          /* same equal width on phone */
+      font-size: 16px;
+  }
+
+  .btn-wrapper{
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: center;
+  }
+
+  /* dashboard sidebar */
+  .sidebar{
+      width: 210px;
+  }
+
+  .card img{
+      max-width: 95%;
+      max-height: 300px;
+  }
+}
