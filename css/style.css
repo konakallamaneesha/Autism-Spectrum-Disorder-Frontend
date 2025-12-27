@@ -1,290 +1,299 @@
+/* ---------- GLOBAL ---------- */
+*{
+  transition: all 0.3s ease;
+}
+
+body{
+  margin:0;
+  font-family:"Poppins",sans-serif;
+  min-height:100vh;
+  background:linear-gradient(135deg,#1b1f3b 0%,#381e52 100%);
+  background-size:cover;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
 /* ---------- LANDING PAGE ---------- */
-body {
-    margin: 0;
-    font-family: "Segoe UI", sans-serif;
-
-    min-height: 100vh;
-    background: 
-        linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
-        url("../images/autism_bg.jpeg") no-repeat center center fixed;
-
-    background-size: cover;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+body.landing{
+  background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);
 }
 
-.btn-wrapper {
-    margin-top: 35px;
+/* overlay */
+.overlay{
+  min-height:100vh;
+  width:100%;
+  padding-top:80px;
+
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+
+  background:linear-gradient(
+    rgba(0,0,0,0.75),
+    rgba(0,0,0,0.6)
+  );
+}
+
+/* ---------- TITLE ---------- */
+.title{
+  font-size:52px;
+  font-weight:700;
+  color:white;
+  margin-bottom:30px;
+}
+
+/* ---------- SUBTITLE ---------- */
+.subtitle{
+  font-size:20px;
+  max-width:760px;
+  color:#e8e8e8;
+  margin-bottom:40px;
+  line-height:1.6;
+}
+
+/* ---------- FOOTER ---------- */
+footer{
+  position:absolute;
+  bottom:8px;
+  left:50%;
+  transform:translateX(-50%);
+  color:white;
+  opacity:0.8;
+}
+
+/* ---------- BUTTON GROUP ---------- */
+.landing .btn-wrapper{
+  display:flex;
+  justify-content:center;
+  gap:22px;
+  flex-wrap:wrap;
+  margin-top:20px;
+}
+
+/* ---------- UNIFIED BUTTON STYLE ---------- */
+.primary-btn,
+.secondary-btn,
+.start-btn{
+  width:300px;          /* ⭐ same width */
+  padding:14px 0;
+  font-size:18px;
+  font-weight:600;
+  border-radius:14px;
+  cursor:pointer;
+  white-space:nowrap;   /* ⭐ single line text */
+  text-align:center;
+}
+
+/* ---------- PRIMARY (BLUE) BUTTON ---------- */
+.primary-btn,
+.start-btn{
+  border:none;
+  color:white;
+  background:linear-gradient(135deg,#2196f3,#1565c0);
+  box-shadow:0 8px 20px rgba(0,0,0,0.45);
+}
+
+.primary-btn:hover,
+.start-btn:hover{
+  transform:translateY(-3px);
+  box-shadow:0 12px 26px rgba(0,0,0,0.55);
+}
+
+/* ---------- SECONDARY OUTLINE BUTTON ---------- */
+.secondary-btn{
+  background:transparent;
+  color:#e3f2fd;
+  border:2px solid #90caf9;
+}
+
+.secondary-btn:hover{
+  background:rgba(255,255,255,0.08);
+}
+
+/* ---------- FORM & RESULT PAGE CONTAINER ---------- */
+.container{
+  width:100%;
+  margin:30px 40px;
+  padding:40px 60px;
+  background:linear-gradient(135deg,rgba(27,31,59,.9),rgba(118,75,162,.9));
+  border-radius:14px;
+  box-shadow:0 10px 30px rgba(0,0,0,.25);
+}
+
+/* ---------- TEXTS ---------- */
+h1,h2{
+  color:white;
+  text-align:center;
+}
+
+h3,label,p,ul{
+  color:white;
+}
+
+/* ---------- FORM ELEMENTS ---------- */
+select,input{
+  width:100%;
+  padding:10px;
+  margin-top:6px;
+  border-radius:6px;
+  border:1px solid white;
+}
+
+select{
+  background:white;
+  color:black;
+}
+
+input{
+  background:rgba(255,255,255,0.1);
+}
+
+/* ---------- PUSH FORM UP ---------- */
+body.form-page{
+  align-items:flex-start!important;
+}
+
+body.form-page .container{
+  margin-top:20px!important;
+}
+
+/* ---------- RESULT PAGE CENTER ---------- */
+body.result-page{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  min-height:100vh;
+}
+/* ---------- FIX FORM PAGE BUTTON AREA ---------- */
+
+/* Push content down safely */
+body.form-page .container{
+    padding-bottom: 50px;
+}
+
+/* Center wrapper and add space */
+body.form-page .btn-wrapper{
     text-align: center;
-}
-.main-card {
-    width: 92%;          /* screen ni almost fill chestundi */
-    max-width: 1200px;   /* large screens ki */
-    
-    background: rgba(255,255,255,0.97);
-    border-radius: 18px;
-    padding: 50px 70px;
-
-    box-shadow: 0 25px 60px rgba(0,0,0,0.45);
-}
-h2{
-  margin-bottom: 15px;
-}
-body.landing {
-    margin: 0;
-    min-height: 100vh;
-    font-family: 'Poppins', sans-serif;
-
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    margin-top: 25px;
+    margin-bottom: 10px;
 }
 
-/* Dark gradient overlay for better text contrast */
-.overlay {
-    min-height: 100vh;
-    width: 100%;
-  padding-top: 80px;
+/* Smaller Predict button only for form page */
+body.form-page .primary-btn{
+    width: 220px;              /* not full width */
+    padding: 12px 20px;
+    font-size: 18px;
+    display: inline-block;
+}
+/* ---- Tighter, cleaner form layout ---- */
 
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;   /* 🔑 top ki move */
-    align-items: center;
-
-    text-align: center;
-               /* 🔑 control space from top */
-    padding-left: 20px;
-    padding-right: 20px;
-
-    background: linear-gradient(
-        rgba(0, 0, 0, 0.75),
-        rgba(0, 0, 0, 0.6)
-    );
+/* reduce top empty space */
+body.form-page .container{
+    margin-top: 5px !important;
+    padding-top: 25px !important;
+    max-width: 900px;           /* ⭐ limits width */
+    margin-left: auto;
+    margin-right: auto;
 }
 
+/* limit dropdown width */
+body.form-page select{
+    max-width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
 
-/* Footer */
-footer {
-    position: absolute;
-    bottom: 5px;
-    left: 50%;
-    transform: translateX(-50%);
-    color: white;
-    text-align: center;
+/* center heading nicely */
+body.form-page h2{
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+/* step text smaller */
+.step{
     font-size: 14px;
     opacity: 0.8;
 }
 
-/* Title */
-.title {
-    font-size: 52px;
-    font-weight: 700;
-    color: #ffffff;
-    letter-spacing: 1px;
-    margin-bottom: 40px;
-
-    text-shadow: 0px 4px 10px rgba(0,0,0,0.6);
+/* form spacing tighter */
+#asdForm label{
+    margin-top: 6px;
+    display: block;
 }
 
-/* Subtitle */
-.subtitle {
-    font-size: 20px;
-    font-weight: 400;
-    color: #e0e0e0;
-    max-width: 720px;
-    line-height: 1.6;
-    margin-bottom: 40px;
+/* ---------- FLOATING EMOJIS ---------- */
+.floating-emoji {
+    position: absolute;
+    font-size: 2rem;
+    opacity: 0.7;
+    pointer-events: none;
+    animation: float 6s ease-in-out infinite, glow 3s ease-in-out infinite alternate;
+    z-index: 1;
 }
 
-/* Button */
-.start-btn {
-    padding: 16px 48px;
-    font-size: 20px;
-    font-weight: 600;
-
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-
-    background: linear-gradient(135deg, #1e88e5, #1565c0);
-    color: #ffffff;
-
-    box-shadow: 0px 8px 20px rgba(0,0,0,0.4);
-    transition: all 0.3s ease;
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    25% {
+        transform: translateY(-10px) rotate(5deg);
+    }
+    50% {
+        transform: translateY(-5px) rotate(0deg);
+    }
+    75% {
+        transform: translateY(-15px) rotate(-5deg);
+    }
 }
 
-.start-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0px 12px 25px rgba(0,0,0,0.5);
-    background: linear-gradient(135deg, #1565c0, #0d47a1);
+@keyframes glow {
+    0% {
+        filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.3));
+        opacity: 0.6;
+    }
+    100% {
+        filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.8));
+        opacity: 0.9;
+    }
 }
 
-* {
-  transition: all 0.3s ease;
+/* Responsive floating emojis */
+@media (max-width: 768px) {
+    .floating-emoji {
+        font-size: 1.5rem;
+    }
 }
+@media (max-width: 768px) {
 
-body {
-  font-family: "Segoe UI", sans-serif;
-  background: linear-gradient(135deg, #1b1f3b 0%, #381e52 100%);
-  background-size: cover;
-}
-.container {
-  width: 100%;
-   margin: 50px 50px;   /* 🔽 top space thaggindi */
-  padding: 50px 80px;            /* 🔽 header ki daggara */
-  background: linear-gradient(135deg, rgba(27, 31, 59, 0.9) 0%, rgba(118, 75, 162, 0.9) 100%);
-  border-radius: 14px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-}
+  .container{
+    margin: 10px;
+    padding: 20px;
+  }
 
-h1, h2 {
-  text-align: center;
-  color: white;
-  margin-bottom: 30px;
-}
+  .title{
+    font-size: 32px;
+  }
 
-h3 {
-  color: white;
-}
+  .start-btn, .primary-btn{
+    width: 100%;
+  }
 
-label {
-  font-weight: 600;
-  margin-top: 15px;
-  display: block;
-  color: white;
-}
+  .sidebar{
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
 
-select, input {
-  width: 100%;
-  padding: 10px;
-  margin-top: 6px;
-  border-radius: 6px;
-  border: 1px solid white;
-  color: white;
-}
+  .content{
+    margin-left: 0;
+    padding: 15px;
+  }
 
-select {
-  background: white;
-  color: black;
-}
-
-input {
-  background: rgba(255,255,255,0.1);
-}
-
-p {
-  color: white;
-}
-
-ul {
-  color: white;
-}
-
-/* Button container */
-.btn-wrapper {
-    margin-top: 20px;
-}
-/* Common Primary Button */
-.primary-btn {
-    padding: 14px 50px;
-    font-size: 18px;
-    font-weight: 600;
-
-    border: none;
-    border-radius: 12px;
-    cursor: pointer;
-
-    background: linear-gradient(135deg, #2196f3, #1565c0);
-    color: #ffffff;
-
-    min-width: 220px;
-    max-width: 320px;
-
-    box-shadow: 0px 8px 20px rgba(0,0,0,0.35);
-    transition: all 0.3s ease;
-}
-
-.primary-btn:hover {
-    transform: translateY(-3px) scale(1.02);
-    box-shadow: 0px 14px 28px rgba(0,0,0,0.55);
-    background: linear-gradient(135deg, #1565c0, #0d47a1);
-}
-
-
-/* Start Screening Button */
-.start-btn {
-    padding: 16px 60px;
-    font-size: 20px;
-    font-weight: 600;
-
-    border: none;
-    border-radius: 12px;
-    cursor: pointer;
-
-    background: linear-gradient(135deg, #2196f3, #1565c0);
-    color: #ffffff;
-
-    min-width: 260px;
-    max-width: 320px;
-
-    box-shadow: 0px 8px 20px rgba(0,0,0,0.45);
-    transition: all 0.3s ease;
-}
-
-.start-btn:hover {
-    transform: translateY(-4px) scale(1.02);
-    box-shadow: 0px 14px 28px rgba(0,0,0,0.6);
-    background: linear-gradient(135deg, #1565c0, #0d47a1);
-}
-
-
-.step {
-  text-align: center;
-  color: gray;
-  font-size: 14px;
-}
-
-.result-text {
-  font-size: 22px;
-  font-weight: bold;
-  text-align: center;
-}
-
-.prob-text {
-  text-align: center;
-  font-size: 18px;
-  color: #555;
-}
-
-.disclaimer {
-  font-size: 13px;
-  color: gray;
-  margin-top: 20px;
-  text-align: center;
-}
-/* FORCE CONTENT TO MOVE UP */
-body {
-  align-items: flex-start !important;
-}
-/* 🔥 FORCE move content UP for form & result pages */
-body.form-page {
-    align-items: flex-start !important;
-}
-
-/* 🔥 container ni top ki push cheyyadam */
-body.form-page .container {
-    margin-top: 10px !important;
-    padding-top: 40px !important;
-}
-/* ================= RESULT PAGE CENTER FIX ================= */
-
-/* Body ni full center lo align cheyyadam */
-body.result-page {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    margin:5px 5px;
+  .card img{
+    max-width: 100%;
+    height: auto;
+  }
 }

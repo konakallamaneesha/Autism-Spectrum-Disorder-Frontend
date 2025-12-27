@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>ASD Model Dashboard</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+  margin:0;
+  font-family:"Poppins",sans-serif;
+  background:linear-gradient(135deg,#1b1f3b,#381e52);
+  color:white;
+}
+
+/* ---------- FIXED SIDEBAR ---------- */
+.sidebar{
+  width:260px;
+  position:fixed;
+  top:0;
+  left:0;
+  height:100vh;
+  background:rgba(0,0,0,0.35);
+  border-right:1px solid rgba(255,255,255,0.2);
+  padding:18px;
+}
+
+.sidebar h2{
+  text-align:center;
+  margin-bottom:10px;
+}
+
+/* Icon style buttons */
+.side-btn{
+  width:100%;
+  padding:12px;
+  border-radius:14px;
+  border:none;
+  margin-top:10px;
+  background:rgba(255,255,255,0.08);
+  color:white;
+  font-size:16px;
+  font-weight:600;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.side-btn img{
+  width:18px;
+  height:18px;
+  opacity:0.9;
+}
+
+
+.side-btn:hover,
+.side-btn.active{
+  background:#1e88e5;
+}
+
+/* ---------- CONTENT AREA ---------- */
+.content{
+  margin-left:280px;
+  padding:30px 40px;
+}
+
+/* every page section */
+.section{
+  display:none;
+}
+
+.section.active{
+  display:block;
+}
+
+/* cards */
+.card{
+  background:rgba(255,255,255,0.08);
+  padding:18px;
+  border-radius:14px;
+  margin-bottom:18px;
+}
+
+img{
+  border-radius:12px;
+  max-width:100%;
+}
+
+table{
+  width:100%;
+  border-collapse:collapse;
+}
+
+th,td{
+  padding:10px;
+  text-align:center;
+  border:1px solid rgba(255,255,255,0.3);
+}
+.card img{
+  max-width:400px;     /* ⭐ smaller width */
+  max-height:450px;    /* ⭐ smaller height */
+  width:95%;
+  display:block;
+  margin:10px auto;
+  border-radius:12px;
+}
+
+
+</style>
+</head>
+
+<body>
+
+<!-- ---------- SIDEBAR ---------- -->
+<div class="sidebar">
+
+  <h2>📊 Dashboard</h2>
+
+  <button class="side-btn active" onclick="openSection('metrics', this)">
+  📊 Metrics
+</button>
+
+<button class="side-btn" onclick="openSection('roc', this)">
+  📈 ROC Curve
+</button>
+
+<button class="side-btn" onclick="openSection('cm', this)">
+  🧩 Confusion Matrix
+</button>
+
+<button class="side-btn" onclick="openSection('xai', this)">
+  🤖 XAI / SHAP
+</button>
+
+  <button class="side-btn" onclick="window.location.href='index.html'">
+    ⬅ Back Home
+  </button>
+
+</div>
+
+<!-- ---------- CONTENT AREA ---------- -->
+<div class="content">
+
+  <!-- METRICS -->
+  <div id="metrics" class="section active">
+
+    <h2>📌 Model Metrics Comparison</h2>
+
+    <div class="card">
+     <table>
+  <tr>
+    <th>Metric</th>
+    <th>Logistic Regression</th>
+    <th>Random Forest</th>
+  </tr>
+
+  <tr><td>Accuracy</td><td>0.91</td><td>0.93 </td></tr>
+  <tr><td>Precision</td><td>0.93</td><td>0.95</td></tr>
+  <tr><td>Recall</td><td>0.95</td><td>0.95</td></tr>
+  <tr><td>F1-Score</td><td>0.94</td><td>0.95</td></tr>
+</table>
+
+<hr>
+
+<h3>📝 Interpretation</h3>
+
+<p>
+Random Forest performs slightly better than Logistic Regression because it captures
+non-linear relationships in the data. It provides higher accuracy and F1-score.
+Hence, we selected <b>Random Forest as the final model</b> for ASD screening.
+</p>
+
+<ul>
+  <li><b>Accuracy</b> – overall correct predictions</li>
+  <li><b>Precision</b> – how many predicted ASD are really ASD</li>
+  <li><b>Recall (Sensitivity)</b> – how many ASD children were correctly detected</li>
+  <li><b>F1-Score</b> – balance between Precision and Recall</li>
+</ul>
+
+<p>
+✔ High <b>Recall</b> is important because missing an ASD child is riskier <br> 
+✔ Our model correctly identifies most ASD cases
+</p>
+
+      
+    </div>
+    
+
+  </div>
+
+  <!-- ROC CURVE -->
+  <div id="roc" class="section">
+    <h2>📈 ROC Curve</h2>
+
+    <div class="card">
+  
+  <img src="images/roc_rf.jpeg">
+
+  <h3>📝 Interpretation of ROC Curve</h3>
+
+  <p>
+    ROC Curve compares <b>True Positive Rate</b> vs <b>False Positive Rate</b>.
+    A model with higher ROC curve performs better in distinguishing ASD vs Non-ASD children.
+  </p>
+
+  <ul>
+    <li><b>AUC (Area Under Curve) ≈ 0.97</b> — Excellent classifier</li>
+    <li>Closer curve to top-left corner → Better model performance</li>
+    <li>Diagonal line is a bad model (random guessing)</li>
+  </ul>
+
+  <p>
+    ✔ High AUC means the model accurately separates ASD and Non-ASD children  <br>
+    ✔ This is important in medical screening to <b>reduce false negatives</b>
+  </p>
+
+</div>
+
+  </div>
+
+  <!-- CONFUSION MATRIX -->
+  <div id="cm" class="section">
+    <h2>🧩 Confusion Matrix</h2>
+
+    <div class="card">
+
+  <img src="images/cm_rf.jpeg">
+
+  <h3>📝 Interpretation of Confusion Matrix</h3>
+
+  <p>
+    Confusion Matrix shows how many predictions were correct and incorrect.
+    It is especially important in medical screening systems like ASD detection.
+  </p>
+
+  <ul>
+    <li><b>TP (True Positive)</b> – correctly predicted ASD children</li>
+    <li><b>TN (True Negative)</b> – correctly predicted Non-ASD children</li>
+    <li><b>FP (False Positive)</b> – predicted ASD but actually Non-ASD</li>
+    <li><b>FN (False Negative)</b> – predicted Non-ASD but actually ASD</li>
+  </ul>
+
+  <p>
+    ✔ Our model has very <b>low False Negatives (FN)</b>  
+    ✔ This is important because missing an ASD child is risky  
+    ✔ Higher TP indicates strong ASD detection ability  
+  </p>
+
+  <p style="color:#90ee90; font-weight:600;">
+    Conclusion: The model correctly identifies most ASD and Non-ASD cases,
+    making it suitable for early ASD screening.
+  </p>
+
+</div>
+
+  </div>
+
+  <!-- XAI / SHAP -->
+  <div id="xai" class="section">
+    <h2>🤖 Explainable AI – SHAP</h2>
+
+    <div class="card">
+
+  <img src="images/shap_rf.jpeg">
+
+  <h3>🧠 Interpretation of SHAP (Explainable AI)</h3>
+
+  <p>
+    SHAP explains <b>why the model predicted ASD or Non-ASD</b> for a child.
+    Instead of giving only a black-box prediction, SHAP shows the contribution of each feature.
+  </p>
+
+  <ul>
+    <li>Red color → increases probability of ASD</li>
+    <li>Blue color → decreases probability of ASD</li>
+    <li>Features at top → most important in prediction</li>
+  </ul>
+
+  <h4>🔍 Key influential features in our model</h4>
+
+  <ul>
+    <li>A1–A7 behavioural screening questions</li>
+    <li>Family history of ASD</li>
+    <li>Eye contact and gesture responses</li>
+    <li>Age has moderate effect</li>
+  </ul>
+
+  <p>
+    ✔ XAI helps parents and clinicians understand <b>why</b> the model flagged ASD  
+    ✔ Builds trust and transparency in AI-based health tools  
+    ✔ Helps in early intervention and better counselling  
+  </p>
+
+  <p style="color:#7CFC00; font-weight:600;">
+    Conclusion: SHAP makes our ASD model interpretable instead of a black-box,
+    which is essential for healthcare and sensitive child diagnosis domains.
+  </p>
+
+</div>
+
+  </div>
+
+</div>
+
+<!-- ---------- JAVASCRIPT ---------- -->
+<script>
+
+function openSection(id, btn){
+
+  // hide all sections
+  document.querySelectorAll(".section").forEach(
+    s => s.classList.remove("active")
+  );
+
+  // show selected
+  document.getElementById(id).classList.add("active");
+
+  // remove previous active button highlight
+  document.querySelectorAll(".side-btn").forEach(
+    b => b.classList.remove("active")
+  );
+
+  // highlight clicked button
+  btn.classList.add("active");
+}
+
+</script>
+
+</body>
+</html>
