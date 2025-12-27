@@ -3,179 +3,365 @@
   transition: all 0.3s ease;
 }
 
-html, body{
+body{
   margin:0;
-  padding:0;
-  max-width:100%;
-  overflow-x:hidden !important;       /* ⭐ remove sideways scroll */
   font-family:"Poppins",sans-serif;
+  min-height:100vh;
   background:linear-gradient(135deg,#1b1f3b 0%,#381e52 100%);
+  background-size:cover;
+  display:flex;
+  justify-content:center;
+  align-items:center;
 }
 
 /* ---------- LANDING PAGE ---------- */
 body.landing{
-  background:linear-gradient(135deg,#667eea,#764ba2);
+  background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);
 }
 
-/* overlay wrapper */
+/* overlay */
 .overlay{
   min-height:100vh;
   width:100%;
-  padding-top:110px;                  /* ⭐ more gap from top */
+  padding-top:80px;
+
+  display:flex;
+  flex-direction:column;
+  align-items:center;
   text-align:center;
 
   background:linear-gradient(
     rgba(0,0,0,0.75),
     rgba(0,0,0,0.6)
   );
-
-  position:relative;
-  overflow:hidden;                    /* ⭐ emojis don't go outside */
 }
 
 /* ---------- TITLE ---------- */
 .title{
-  font-size:48px;
+  font-size:52px;
   font-weight:700;
   color:white;
-  margin-bottom:16px;
+  margin-bottom:30px;
 }
 
 /* ---------- SUBTITLE ---------- */
 .subtitle{
-  font-size:18px;
+  font-size:20px;
   max-width:760px;
   color:#e8e8e8;
-  margin-bottom:30px;
+  margin-bottom:40px;
   line-height:1.6;
+}
+
+/* ---------- FOOTER ---------- */
+footer{
+  position:absolute;
+  bottom:8px;
+  left:50%;
+  transform:translateX(-50%);
+  color:white;
+  opacity:0.8;
 }
 
 /* ---------- BUTTON GROUP ---------- */
 .landing .btn-wrapper{
   display:flex;
   justify-content:center;
-  gap:18px;
+  gap:22px;
   flex-wrap:wrap;
+  margin-top:20px;
 }
 
-/* unified button style */
+/* ---------- UNIFIED BUTTON STYLE ---------- */
 .primary-btn,
+.secondary-btn,
 .start-btn{
-  width:300px;
+  width:300px;          /* ⭐ same width */
   padding:14px 0;
   font-size:18px;
-  border:none;
-  color:white;
+  font-weight:600;
   border-radius:14px;
-  background:linear-gradient(135deg,#2196f3,#1565c0);
-  box-shadow:0 8px 20px rgba(0,0,0,.45);
+  cursor:pointer;
+  white-space:nowrap;   /* ⭐ single line text */
+  text-align:center;
 }
 
-/* ---------- FOOTER ---------- */
-footer{
-  position:absolute;
-  bottom:12px;
-  left:50%;
-  transform:translateX(-50%);
-  width:90%;
-  text-align:center;
-
+/* ---------- PRIMARY (BLUE) BUTTON ---------- */
+.primary-btn,
+.start-btn{
+  border:none;
   color:white;
-  font-size:14px;
-  line-height:1.2;               /* ⭐ exactly 2 lines on phone */
-  opacity:0.9;
+  background:linear-gradient(135deg,#2196f3,#1565c0);
+  box-shadow:0 8px 20px rgba(0,0,0,0.45);
+}
+
+.primary-btn:hover,
+.start-btn:hover{
+  transform:translateY(-3px);
+  box-shadow:0 12px 26px rgba(0,0,0,0.55);
+}
+
+/* ---------- SECONDARY OUTLINE BUTTON ---------- */
+.secondary-btn{
+  background:transparent;
+  color:#e3f2fd;
+  border:2px solid #90caf9;
+}
+
+.secondary-btn:hover{
+  background:rgba(255,255,255,0.08);
+}
+
+/* ---------- FORM & RESULT PAGE CONTAINER ---------- */
+.container{
+  width:100%;
+  margin:30px 40px;
+  padding:40px 60px;
+  background:linear-gradient(135deg,rgba(27,31,59,.9),rgba(118,75,162,.9));
+  border-radius:14px;
+  box-shadow:0 10px 30px rgba(0,0,0,.25);
+}
+
+/* ---------- TEXTS ---------- */
+h1,h2{
+  color:white;
+  text-align:center;
+}
+
+h3,label,p,ul{
+  color:white;
+}
+
+/* ---------- FORM ELEMENTS ---------- */
+select,input{
+  width:100%;
+  padding:10px;
+  margin-top:6px;
+  border-radius:6px;
+  border:1px solid white;
+}
+
+select{
+  background:white;
+  color:black;
+}
+
+input{
+  background:rgba(255,255,255,0.1);
+}
+
+/* ---------- PUSH FORM UP ---------- */
+body.form-page{
+  align-items:flex-start!important;
+}
+
+body.form-page .container{
+  margin-top:20px!important;
+}
+
+/* ---------- RESULT PAGE CENTER ---------- */
+body.result-page{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  min-height:100vh;
+}
+/* ---------- FIX FORM PAGE BUTTON AREA ---------- */
+
+/* Push content down safely */
+body.form-page .container{
+    padding-bottom: 50px;
+}
+
+/* Center wrapper and add space */
+body.form-page .btn-wrapper{
+    text-align: center;
+    margin-top: 25px;
+    margin-bottom: 10px;
+}
+
+/* Smaller Predict button only for form page */
+body.form-page .primary-btn{
+    width: 220px;              /* not full width */
+    padding: 12px 20px;
+    font-size: 18px;
+    display: inline-block;
+}
+/* ---- Tighter, cleaner form layout ---- */
+
+/* reduce top empty space */
+body.form-page .container{
+    margin-top: 5px !important;
+    padding-top: 25px !important;
+    max-width: 900px;           /* ⭐ limits width */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* limit dropdown width */
+body.form-page select{
+    max-width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+/* center heading nicely */
+body.form-page h2{
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+/* step text smaller */
+.step{
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+/* form spacing tighter */
+#asdForm label{
+    margin-top: 6px;
+    display: block;
 }
 
 /* ---------- FLOATING EMOJIS ---------- */
-.floating-emoji{
-  position:absolute;
-  font-size:2rem;
-  opacity:0.6;
-  pointer-events:none;
-  z-index:1;                      /* ⭐ behind content */
-  animation:float 6s ease-in-out infinite;
+.floating-emoji {
+    position: absolute;
+    font-size: 2rem;
+    opacity: 0.7;
+    pointer-events: none;
+    animation: float 6s ease-in-out infinite, glow 3s ease-in-out infinite alternate;
+    z-index: 1;
 }
 
-@keyframes float{
-  0%,100%{transform:translateY(0)}
-  50%{transform:translateY(-12px)}
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    25% {
+        transform: translateY(-10px) rotate(5deg);
+    }
+    50% {
+        transform: translateY(-5px) rotate(0deg);
+    }
+    75% {
+        transform: translateY(-15px) rotate(-5deg);
+    }
 }
 
-/* smaller emoji on phones */
-@media(max-width:768px){
-  .floating-emoji{
-    font-size:1.3rem;
-    opacity:0.45;
+@keyframes glow {
+    0% {
+        filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.3));
+        opacity: 0.6;
+    }
+    100% {
+        filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.8));
+        opacity: 0.9;
+    }
+}
+
+/* Responsive floating emojis */
+@media (max-width: 768px) {
+    .floating-emoji {
+        font-size: 1.5rem;
+    }
+}
+@media (max-width: 768px) {
+
+  .container{
+    margin: 10px;
+    padding: 20px;
   }
-}
 
-/* ---------- FORM PAGE ---------- */
-body.form-page .container{
-  max-width:900px;
-  margin:10px auto;
-  padding:20px 24px;
-  border-radius:14px;
-}
+  .title{
+    font-size: 32px;
+  }
 
-body.form-page .primary-btn{
-  width:220px;
-}
+  .start-btn, .primary-btn{
+    width: 100%;
+  }
 
-/* ---------- DASHBOARD ---------- */
-/* fixed full height sidebar */
-.sidebar{
-  width:250px;
-  position:fixed;
-  top:0;
-  left:0;
-  bottom:0;
-  height:100vh;
-  background:rgba(0,0,0,.35);
-  padding:16px;
-  overflow-y:auto;
-}
-
-/* right content scrolls only up–down */
-.content{
-  margin-left:260px;
-  height:100vh;
-  overflow-y:auto;
-  overflow-x:hidden;               /* ⭐ no horizontal scroll */
-  padding:18px;
-}
-
-/* cards */
-.card{
-  background:rgba(255,255,255,0.08);
-  border-radius:16px;
-  padding:14px;
-}
-
-.card img{
-  max-width:100%;
-  max-height:320px;
-}
-
-/* ---------- MOBILE FIX ---------- */
-@media(max-width:768px){
-
-  .overlay{padding-top:95px;}
-
-  .title{font-size:28px;}
-  .subtitle{font-size:14px;}
-
-  .start-btn,
-  .primary-btn{width:95%;}
-
-  /* mobile dashboard layout stacked */
   .sidebar{
-    width:100%;
-    height:auto;
-    position:relative;
+    width: 100%;
+    height: auto;
+    position: relative;
   }
 
   .content{
-    margin-left:0;
-    height:auto;
+    margin-left: 0;
+    padding: 15px;
+  }
+
+  .card img{
+    max-width: 100%;
+    height: auto;
   }
 }
+/* ---------- MOBILE RESPONSIVE FIX ---------- */
+
+
+@media (max-width: 768px){
+
+    body{
+        display:block;  /* disable center flex on phone */
+    }
+
+    .container{
+        max-width: 95%;
+        margin: 10px auto;
+        padding: 16px 14px;
+    }
+
+    /* home title */
+    .title{
+        font-size: 26px;
+        line-height: 1.2;
+    }
+
+    .subtitle{
+        font-size: 14px;
+    }
+
+    /* buttons equal width */
+    .primary-btn,
+    .start-btn{
+        width: 100%;
+        max-width: 320px;
+        font-size: 16px;
+    }
+
+    .btn-wrapper{
+        flex-direction: column;
+        gap: 8px;
+        align-items: center;
+    }
+
+    /* form elements */
+    select, input{
+        font-size: 14px;
+        height: 42px;
+    }
+
+    /* form container width */
+    body.form-page .container{
+        max-width: 95%;
+    }
+
+    /* dashboard layout */
+    .sidebar{
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+
+    .content{
+        margin-left: 0;
+    }
+
+    /* graphs smaller */
+    .card img{
+        max-width: 100%;
+        max-height: 260px;
+    }
+}
+
