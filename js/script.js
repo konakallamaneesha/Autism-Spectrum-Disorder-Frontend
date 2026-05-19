@@ -16,7 +16,12 @@ document.getElementById("asdForm").addEventListener("submit", async function (e)
     };
 
     try {
-        const response = await fetch("http://127.0.0.1:5000/predict", {
+        // Get backend URL from window location or use default
+        const backendURL = window.location.origin.includes('localhost') || window.location.origin.includes('127.0.0.1')
+            ? "http://127.0.0.1:5000"
+            : window.location.origin;
+        
+        const response = await fetch(`${backendURL}/predict`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -27,11 +32,10 @@ document.getElementById("asdForm").addEventListener("submit", async function (e)
         const result = await response.json();
 
         localStorage.setItem("asdResult", JSON.stringify(result));
-
-        window.location.href = "result.html";
+        window.location.href = "./result.html";
 
     } catch (error) {
-        alert("Backend not reachable. Is Flask running?");
+        alert("Backend not reachable");
         console.error(error);
     }
 });

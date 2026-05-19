@@ -297,3 +297,19 @@ body.form-page h2{
     height: auto;
   }
 }
+/* ---------- SHAP IMAGE FINAL FIX ---------- */
+.shap-container {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.shap-img {
+  width: 100%;
+  max-width: 420px;   /* 🔥 reduce width */
+  max-height: 350px;  /* 🔥 control height */
+  object-fit: contain; /* keep aspect ratio */
+  display: block;
+  margin: 20px auto;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+}
