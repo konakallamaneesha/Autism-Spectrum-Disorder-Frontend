@@ -158,9 +158,9 @@ th,td{
     <th>Random Forest</th>
   </tr>
 
-  <tr><td>Accuracy</td><td>0.91</td><td>0.93 </td></tr>
-  <tr><td>Precision</td><td>0.93</td><td>0.95</td></tr>
-  <tr><td>Recall</td><td>0.95</td><td>0.95</td></tr>
+  <tr><td>Accuracy</td><td>0.92</td><td>0.92 </td></tr>
+  <tr><td>Precision</td><td>0.94</td><td>0.93</td></tr>
+  <tr><td>Recall</td><td>0.94</td><td>0.95</td></tr>
   <tr><td>F1-Score</td><td>0.94</td><td>0.95</td></tr>
 </table>
 
@@ -169,9 +169,14 @@ th,td{
 <h3>📝 Interpretation</h3>
 
 <p>
-Random Forest performs slightly better than Logistic Regression because it captures
-non-linear relationships in the data. It provides higher accuracy and F1-score.
-Hence, we selected <b>Random Forest as the final model</b> for ASD screening.
+shows the two machine learning models (Logistic 
+Regression and Random Forest) resulted in the same 
+accuracy (0.92). However, Random Forest has slightly 
+higher recall than Logistic Regression. Given that recall is 
+very important in medical applications to reduce the number 
+of missed ASD cases, we have selected Random Forest as 
+our final model and Logistic Regression as our baseline 
+model. 
 </p>
 
 <ul>
